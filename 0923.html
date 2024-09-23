@@ -1,0 +1,101 @@
+<html>
+<head>
+        <title>CSS簡介</title>
+        <meta charset="UTF-8">
+        
+        <style>
+            /*CSS註解 */
+            /*CSS基本語法
+                選擇器 {
+                    屬性:設定;
+                    屬性:設定;
+                    屬性:設定;
+                    屬性:設定;
+                 }
+            */
+            /*選擇器的種類
+                HTML_tag{}
+                #id{}
+                .class{}
+            */
+            /*顏色
+                1.color name
+                2.#色碼#RRGGBB 00~FF
+                3.rgb(r ，g ，b)0~255
+                4.rgba(r，g，b，a)a:不透明度0~1(是看的到0是看不到)
+                5.hsla(色相，彩度，亮度)(彩度的0是灰色彩度的100是彩色)(亮度的0是黑色亮度的100是白色)
+                6.hsla(0~360，0~100%，0~100%，0~1)
+            */
+            /*
+            前景:文字顏色(color)
+            背景(background):
+                顏色(background-color)
+                圖像(background-image)
+            */
+            p{
+                margin:0;
+            }
+            div{
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+            }
+            span{
+                background-color:yellow;
+            }
+            #sp1{
+                background-color:gray;
+                width: 200px;
+                height: 100px;
+                display: inline;
+            }
+            /*行內區塊元素跟行內元素的最大差別行內區塊元素的背景顏色可以調整大小*/
+            #sp2{
+                background-color: beige;
+                width: 200px;
+                height: 100px;
+                display: inline-block;
+
+            }
+            #sp3{
+                display: block;
+                width: 200px;
+                height: 100px;
+            }
+           .cs1{
+            color: aqua;
+           }
+           .cs2{
+
+           }
+           div{
+            background-color: azure;
+            width: 300px;
+            height: 50px;
+            margin-bottom: 100px;
+           }
+           /*漸層 not a color， is a image
+           1.線性漸層 linear-gradient() to top/right/bottom/left =>0~360deg
+           2.放射漸層
+           3.圓錐漸層
+           */
+           #di{
+            background: linear-gradient(125deg,red,yellow);
+           }
+           #d2{
+            background-image: linear-gradient(90deg,red,orange,yellow,green,blue,indigo,violet);
+           }
+        </style>
+
+                
+
+
+</head>
+<body>
+    <p>段落</p>
+    <div>區塊元素</div>
+    <span id="sp1">行內元素</span>
+    <span id="sp2" class="cs2">行內區塊元素</span>
+    <span id="sp3" class=="cs3">區塊元素</span>
+</body>
+</html>
