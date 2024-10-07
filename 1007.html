@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>元素的平面空間</title>
+    <meta charset ="UTF-8">
+    <style>
+        div{
+            width: 500px;
+            height:100px;
+            border: solid 1px black;
+            margin-bottom:10px;
+        }
+        #d1{
+            border-width: 10px;
+            border-color: red yellow green blue;
+            border-style: dashed solid dotted double;
+        }
+        #d2{
+           border-radius: 10px 2-px 30px 40px;
+        }
+        #d3{
+            border-radius: 50%;
+        }
+        #d4{
+            width:50px;
+            border-color:transparent;
+            border-bottom-color:blue;       
+            width:0;
+            padding: 0px;
+            height: 0;
+            border-bottom-width: 86.6px;
+        }
+        #d5{
+            border-width: 50px;
+            border-color: transparent;
+            border-bottom-color:green;
+            border-bottom-width: 86.6px;
+            width: 0;
+            height: 0;
+
+            transform: rotate(-30deg);
+
+        }
+        #d6{
+            position: relative; 
+            width: 300px;
+            height:300px;
+            padding: :0;
+        }
+        #d6-1{
+            border-color: red;
+            width: 50px;
+            height:50px;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 30px;
+            left: 50px;
+        }
+    
+    </style>
+</head> 
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <div id="d4"></div>
+    <div id="d5"></div>
+
+
+
+    <div id="d6">
+        <div id="d6-1"></div>
+    </div>
+</html>
