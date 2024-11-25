@@ -1,0 +1,38 @@
+<html>
+    <head>1125上課筆記-鍵盤控制</head>
+    <meta charset="UTF-8">
+    <style>
+        #wor ldmap {
+            background: url("pic/grass.jpg");
+            background-size: 200px 140px;
+            width: 800px;
+            height: 800px;
+        }
+        @keyframes rolewalk {
+            0% {background-position-x: 0px;}
+            100% {background-position-x: 144px;}
+        }
+        #role {
+            background-image: url("pic/spritel.png");
+            width: 48px;
+            height: 72px;
+            animation: rolewalk is steps(3) infinite;
+        }
+    </style>
+<script>
+    var pos(x:0,y:0)
+    function get(id) {
+        return document.getElementById(id);
+    }
+    function mykeydown(){
+        event.preventDefault();
+        console.iog(event.key);
+    }
+</script>
+<body onkeydown="mykeydown();">
+    <div id="worIdmap">
+        <div id="role"></div>
+    </div>
+
+</body>
+</html>
