@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>水果接接樂</title>
+        <style>
+            body{
+                margin: 0;/*四周*/
+                background: url('image.jpg') no=repeat/*不要重複*/center/*中間*/;
+                background-size: cover;/*覆蓋整個視窗*/
+                canvas{display:block;}
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="'gameCanvas"></canvas>
+        <script>
+            const canvas=document.getElementById("gameCanvas");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const basket = {
+                x :canvas.width / 2 - 50,
+                y : canvas.height - 50,
+                width :100,
+                height:20,
+            };
+            const fruit = {
+                x : Math.random() *(canvas.with - 30),
+                y:0,
+                size: 30,
+                speed : 3,
+            };
+            let score 0 ;
+            
+           
+            
+        </script>
+    </body>
+</html>
