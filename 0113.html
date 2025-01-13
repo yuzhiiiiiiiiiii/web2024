@@ -1,38 +1,102 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>水果接接樂</title>
-        <style>
-            body{
-                margin: 0;/*四周*/
-                background: url('image.jpg') no=repeat/*不要重複*/center/*中間*/;
-                background-size: cover;/*覆蓋整個視窗*/
-                canvas{display:block;}
-            }
-        </style>
-    </head>
-    <body>
-        <canvas id="'gameCanvas"></canvas>
-        <script>
-            const canvas=document.getElementById("gameCanvas");
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            const basket = {
-                x :canvas.width / 2 - 50,
-                y : canvas.height - 50,
-                width :100,
-                height:20,
-            };
-            const fruit = {
-                x : Math.random() *(canvas.with - 30),
-                y:0,
-                size: 30,
-                speed : 3,
-            };
-            let score 0 ;
-            
-           
-            
-        </script>
-    </body>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水果接接樂</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: url('background.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+  
+      
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+  
+     
+      const basket = {
+        x: canvas.width / 2 - 50,
+        y: canvas.height - 50,
+        width: 100,
+        height: 20,
+      };
+  
+      
+      const fruit = {
+        x: Math.random() * (canvas.width - 30),
+        y: 0,
+        size: 30,
+        speed: 3,
+      };
+  
+      let score = 0;
+  
+      
+      function drawBasket() {
+        ctx.fillStyle = "blue";
+        ctx.fillRect(basket.x, basket.y, basket.width, basket.height);
+      }
+  
+      function drawFruit() {
+        ctx.fillStyle = "red";
+        ctx.beginPath();
+        ctx.arc(fruit.x, fruit.y, fruit.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+  
+     
+      function updateGame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+        fruit.y += fruit.speed;
+  
+       
+        if (fruit.y > canvas.height) {
+          fruit.x = Math.random() * (canvas.width - fruit.size);
+          fruit.y = 0;
+        }
+  
+       
+        if (
+          fruit.y + fruit.size >= basket.y &&
+          fruit.x + fruit.size / 2 > basket.x &&
+          fruit.x - fruit.size / 2 < basket.x + basket.width
+        ) {
+          score++;
+          fruit.x = Math.random() * (canvas.width - fruit.size);
+          fruit.y = 0;
+        }
+  
+        
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+        ctx.fillText("Score: " + score, 10, 30);
+  
+        
+        drawBasket();
+        drawFruit();
+  
+        requestAnimationFrame(updateGame);
+      }
+  
+      
+      canvas.addEventListener("mousemove", (event) => {
+        basket.x = event.clientX - basket.width / 2;
+      });
+  
+    
+      updateGame();
+    </script>
+  </body>
+  </html>
